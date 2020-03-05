@@ -1,3 +1,4 @@
+import { Reducer } from 'redux';
 import * as types from './types';
 import {
  Pet, Service,
@@ -18,7 +19,8 @@ const INITIAL_STATE: RootState = {
   error: null,
 };
 
-const reducer = (state = INITIAL_STATE, action: BaseAction | PetsAction | ErrorAction | ServicesAction) => {
+const reducer: Reducer<RootState, BaseAction | PetsAction | ErrorAction | ServicesAction> =
+  (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case types.GET_SERVICES_REQUEST:
     case types.GET_PETS_REQUEST: {
