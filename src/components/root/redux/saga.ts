@@ -17,9 +17,9 @@ function* getPets(action: BaseAction) {
 function* getServices() {
   try {
     const response = yield call(getServicesAPIRequest);
-    yield put(actions.getPetsSuccess(response));
+    yield put(actions.getServicesSuccess(response));
   } catch (error) {
-    yield put(actions.getPetsFailed(error));
+    yield put(actions.getServicesFailed(error));
   }
 }
 
