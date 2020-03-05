@@ -1,13 +1,11 @@
-const IDENTIFIER = '[root]';// @@root
+export const GET_PETS_REQUEST = `[root]GET_PETS_REQUEST` as const;
+export const GET_PETS_SUCCESS = `[root]GET_PETS_SUCCESS` as const;
+export const GET_PETS_FAILED = `[root]GET_PETS_FAILED` as const;
 
-export const GET_PETS_REQUEST = `${IDENTIFIER}GET_PETS_REQUEST`;
-export const GET_PETS_SUCCESS = `${IDENTIFIER}GET_PETS_SUCCESS`;
-export const GET_PETS_FAILED = `${IDENTIFIER}GET_PETS_FAILED`;
+export const CLEAR_PETS = `[root]CLEAR_PETS` as const;
 
-export const CLEAR_PETS = `${IDENTIFIER}CLEAR_PETS`;
+export const GET_SERVICES_REQUEST = `[root]GET_SERVICES_REQUEST` as const;
+export const GET_SERVICES_SUCCESS = `[root]GET_SERVICES_SUCCESS` as const;
+export const GET_SERVICES_FAILED = `[root]GET_SERVICES_FAILED` as const;
 
-export const GET_SERVICES_REQUEST = `${IDENTIFIER}GET_SERVICES_REQUEST`;
-export const GET_SERVICES_SUCCESS = `${IDENTIFIER}GET_SERVICES_SUCCESS`;
-export const GET_SERVICES_FAILED = `${IDENTIFIER}GET_SERVICES_FAILED`;
-
-export const CLEAR_SERVICES = `${IDENTIFIER}CLEAR_SERVICES`;
+export const CLEAR_SERVICES = `[root]CLEAR_SERVICES` as const;

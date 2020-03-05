@@ -3,60 +3,48 @@ import {
   Pet, Service
 } from '../../../ts-types/api';
 
-export interface BaseAction {
-  type: string;
-  payload?: any;
-}
-
-export interface ErrorAction {
-  type: string;
-  payload: Error;
-}
-
-export interface PetsAction {
-  type: string;
-  payload: Pet[];
-}
-
-export interface ServicesAction {
-  type: string;
-  payload: Service[];
-}
-
-
-export const getPetsRequest = (page?: number): BaseAction => ({
+export const getPetsRequest = (page?: number) => ({
   type: types.GET_PETS_REQUEST,
   payload: page,
 });
 
-export const getPetsSuccess = (data: Pet[]): PetsAction => ({
+export const getPetsSuccess = (data: Pet[]) => ({
   type: types.GET_PETS_SUCCESS,
   payload: data,
 });
 
-export const getPetsFailed = (error: Error): ErrorAction => ({
+export const getPetsFailed = (error: Error) => ({
   type: types.GET_PETS_FAILED,
   payload: error,
 });
 
-export const clearPets = (): BaseAction => ({
+export const clearPets = () => ({
   type: types.CLEAR_PETS,
 });
 
-export const getServicesRequest = (): BaseAction => ({
+export const getServicesRequest = () => ({
   type: types.GET_SERVICES_REQUEST,
 });
 
-export const getServicesSuccess = (data: Service[]): ServicesAction => ({
+export const getServicesSuccess = (data: Service[]) => ({
   type: types.GET_SERVICES_SUCCESS,
   payload: data,
 });
 
-export const getServicesFailed = (error: Error): ErrorAction => ({
+export const getServicesFailed = (error: Error) => ({
   type: types.GET_SERVICES_FAILED,
   payload: error,
 });
 
-export const clearServices = (): BaseAction => ({
+export const clearServices = () => ({
   type: types.CLEAR_SERVICES,
 });
+
+export type Actions = ReturnType<typeof getPetsRequest
+  | typeof getPetsSuccess
+  | typeof getPetsFailed
+  | typeof clearPets
+  | typeof getServicesRequest
+  | typeof getServicesSuccess
+  | typeof getServicesFailed
+  | typeof clearServices>

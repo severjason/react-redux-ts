@@ -1,4 +1,4 @@
-export interface Pet {
+export type Pet = {
   id: string;
   type: 'dog' | 'cat' | 'dragon',
   weight: number;
@@ -6,7 +6,7 @@ export interface Pet {
   name: string;
 }
 
-export interface Service {
+export type Service = {
   id: string;
   name: string;
   description: string;

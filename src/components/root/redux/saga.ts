@@ -1,12 +1,11 @@
 import * as types from './types';
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 import * as actions from './actions';
-import { BaseAction } from './actions';
 import { getPetsAPIRequest, getServicesAPIRequest } from '../../../api';
 
-function* getPets(action: BaseAction) {
+function* getPets(action: ReturnType<typeof actions.getPetsRequest>) {
   try {
-    const response = yield call(getPetsAPIRequest, action.payload);
+    const response: ReturnType<typeof getPetsAPIRequest> = yield call(getPetsAPIRequest, action.payload);
     yield put(actions.getPetsSuccess(response));
   } catch (error) {
     yield put(actions.getPetsFailed(error));
@@ -16,10 +15,10 @@ function* getPets(action: BaseAction) {
 
 function* getServices() {
   try {
-    const response = yield call(getServicesAPIRequest);
-    yield put(actions.getPetsSuccess(response));
+    const response: ReturnType<typeof getServicesAPIRequest> = yield call(getServicesAPIRequest);
+    yield put(actions.getServicesSuccess(response));
   } catch (error) {
-    yield put(actions.getPetsFailed(error));
+    yield put(actions.getServicesSuccess(error));
   }
 }
 

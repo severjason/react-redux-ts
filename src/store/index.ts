@@ -3,11 +3,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
-import { RootState } from '../components/root/redux/reducer';
 
-export interface StoreState {
-  root: RootState;
-}
+export type StoreState = ReturnType<typeof rootReducer>;
 
 const sagaMiddleware = createSagaMiddleware();
 

@@ -1,24 +1,18 @@
+import { Reducer } from 'redux';
 import * as types from './types';
 import {
  Pet, Service,
 } from '../../../ts-types/api';
-import { BaseAction, ErrorAction, PetsAction, ServicesAction } from './actions';
+import { Actions } from './actions';
 
-export interface RootState {
-  isLoading: boolean;
-  pets: Pet[];
-  services: Service[];
-  error: Error | null;
-}
-
-const INITIAL_STATE: RootState = {
+const INITIAL_STATE = {
   isLoading: false,
-  pets: [],
-  services: [],
-  error: null,
+  pets: [] as Pet[],
+  services: [] as Service[],
+  error: null as Error | null,
 };
 
-const reducer = (state = INITIAL_STATE, action: BaseAction | PetsAction | ErrorAction | ServicesAction) => {
+const reducer: Reducer<typeof INITIAL_STATE, Actions> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case types.GET_SERVICES_REQUEST:
     case types.GET_PETS_REQUEST: {
