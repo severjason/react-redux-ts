@@ -3,7 +3,7 @@ import * as types from './types';
 import {
  Pet, Service,
 } from '../../../ts-types/api';
-import { BaseAction, ErrorAction, PetsAction, ServicesAction } from './actions';
+import { Actions } from './actions';
 
 export interface RootState {
   isLoading: boolean;
@@ -19,8 +19,7 @@ const INITIAL_STATE: RootState = {
   error: null,
 };
 
-const reducer: Reducer<RootState, BaseAction | PetsAction | ErrorAction | ServicesAction> =
-  (state = INITIAL_STATE, action) => {
+const reducer: Reducer<RootState, Actions> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case types.GET_SERVICES_REQUEST:
     case types.GET_PETS_REQUEST: {

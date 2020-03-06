@@ -23,6 +23,7 @@ export interface ServicesAction {
   payload: Service[];
 }
 
+export type Actions = BaseAction | PetsAction | ErrorAction | ServicesAction;
 
 export const getPetsRequest = (page?: number): BaseAction => ({
   type: types.GET_PETS_REQUEST,
