@@ -5,7 +5,9 @@ import {
 
 export const getPetsRequest = (page?: number) => ({
   type: types.GET_PETS_REQUEST,
-  payload: page,
+  payload: {
+    page
+  },
 });
 
 export const getPetsSuccess = (data: Pet[]) => ({

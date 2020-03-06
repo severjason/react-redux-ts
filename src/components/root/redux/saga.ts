@@ -6,7 +6,8 @@ import { getPetsAPIRequest, getServicesAPIRequest } from '../../../api';
 
 function* getPets(action: ReturnType<typeof actions.getPetsRequest>) {
   try {
-    const response: Pet[] = yield call(getPetsAPIRequest, action.payload);
+    const {page} = action.payload;
+    const response: Pet[] = yield call(getPetsAPIRequest, page);
     yield put(actions.getPetsSuccess(response));
   } catch (error) {
     yield put(actions.getPetsFailed(error));
