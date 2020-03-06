@@ -8,9 +8,9 @@ export interface BaseAction {
   payload?: any;
 }
 
-export interface ErrorAction {
+export interface PetsRequestAction {
   type: string;
-  payload: Error;
+  payload?: number;
 }
 
 export interface PetsAction {
@@ -18,14 +18,19 @@ export interface PetsAction {
   payload: Pet[];
 }
 
+export interface ErrorAction {
+  type: string;
+  payload: Error;
+}
+
 export interface ServicesAction {
   type: string;
   payload: Service[];
 }
 
-export type Actions = BaseAction | PetsAction | ErrorAction | ServicesAction;
+export type Actions = BaseAction | PetsAction | ErrorAction | ServicesAction | PetsRequestAction;
 
-export const getPetsRequest = (page?: number): BaseAction => ({
+export const getPetsRequest = (page?: number): PetsRequestAction => ({
   type: types.GET_PETS_REQUEST,
   payload: page,
 });
