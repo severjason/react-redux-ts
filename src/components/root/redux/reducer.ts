@@ -12,6 +12,8 @@ const INITIAL_STATE = {
   error: null as Error | null,
 };
 
+export type RootState = typeof INITIAL_STATE;
+
 const reducer: Reducer<typeof INITIAL_STATE, Actions> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case types.GET_SERVICES_REQUEST:
