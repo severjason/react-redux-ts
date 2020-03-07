@@ -1,10 +1,10 @@
 import * as types from './types';
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 import * as actions from './actions';
-import { BaseAction } from './actions';
+import { PetsRequestAction } from './actions';
 import { getPetsAPIRequest, getServicesAPIRequest } from '../../../api';
 
-function* getPets(action: BaseAction) {
+function* getPets(action: PetsRequestAction) {
   try {
     const response = yield call(getPetsAPIRequest, action.payload);
     yield put(actions.getPetsSuccess(response));
